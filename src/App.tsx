@@ -14,10 +14,10 @@ function AppRoutes() {
     <AnimatePresence mode="wait">
       <motion.div
         key={location.pathname}
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.22, ease: "easeOut" }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: 0.18, ease: "easeOut" }}
       >
         <Routes location={location}>
           <Route path="/" element={<Dashboard />} />
@@ -31,13 +31,11 @@ function AppRoutes() {
 
 export function App() {
   return (
-    <div className="min-h-svh bg-background p-3 text-foreground md:p-6">
-      <div className="min-h-[calc(100svh-1.5rem)] rounded-xl border border-border bg-[#f7f5ef] md:min-h-[calc(100svh-3rem)]">
-        <Sidebar />
-        <div className="pb-20 md:ml-16 md:pb-0 lg:ml-64">
-          <Topbar />
-          <AppRoutes />
-        </div>
+    <div className="min-h-svh bg-background text-foreground">
+      <Sidebar />
+      <div className="pb-20 md:ml-16 md:pb-0 lg:ml-60">
+        <Topbar />
+        <AppRoutes />
       </div>
     </div>
   )

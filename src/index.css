@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: "Inter", sans-serif;
+    --font-heading: "DM Sans", sans-serif;
+    --font-sans: "DM Sans", sans-serif;
+    --font-mono: "DM Mono", monospace;
     --color-income: var(--income);
     --color-expense: var(--expense);
     --color-sidebar-ring: var(--sidebar-ring);
@@ -40,50 +41,88 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+    --radius-sm: 0px;
+    --radius-md: 2px;
+    --radius-lg: 4px;
+    --radius-xl: 6px;
+    --radius-2xl: 8px;
+    --radius-3xl: 10px;
+    --radius-4xl: 12px;
 }
 
+/* ─── Light Mode ─────────────────────────────────────────────── */
 :root {
-    --background: #efede6;
-    --foreground: #262622;
+    --background: #f5f5f0;
+    --foreground: #1a1a18;
     --card: #ffffff;
-    --card-foreground: #262622;
+    --card-foreground: #1a1a18;
     --popover: #ffffff;
-    --popover-foreground: #262622;
-    --primary: #3d8a2f;
+    --popover-foreground: #1a1a18;
+    --primary: #2d6a4f;
     --primary-foreground: #ffffff;
-    --secondary: #f4f2eb;
-    --secondary-foreground: #262622;
-    --muted: #f5f2ea;
-    --muted-foreground: #7c7a74;
-    --accent: #4b9438;
+    --secondary: #f0efe9;
+    --secondary-foreground: #1a1a18;
+    --muted: #edece6;
+    --muted-foreground: #6b6b63;
+    --accent: #40916c;
     --accent-foreground: #ffffff;
     --destructive: oklch(0.577 0.245 27.325);
-    --border: #e3dfd3;
-    --input: #e8e4d8;
-    --ring: rgb(75 148 56 / 0.2);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.5rem;
+    --border: #dddcd6;
+    --input: #dddcd6;
+    --ring: rgb(45 106 79 / 0.25);
+    --chart-1: #2d6a4f;
+    --chart-2: #40916c;
+    --chart-3: #52b788;
+    --chart-4: #74c69d;
+    --chart-5: #95d5b2;
+    --radius: 4px;
     --sidebar: #ffffff;
-    --sidebar-foreground: #262622;
-    --sidebar-primary: #4b9438;
+    --sidebar-foreground: #1a1a18;
+    --sidebar-primary: #2d6a4f;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #edf4e8;
-    --sidebar-accent-foreground: #2f6a23;
-    --sidebar-border: #e3dfd3;
-    --sidebar-ring: rgb(75 148 56 / 0.2);
-    --income: #3d8a2f;
-    --expense: #d5653c;
+    --sidebar-accent: #e8f0ec;
+    --sidebar-accent-foreground: #1b4332;
+    --sidebar-border: #dddcd6;
+    --sidebar-ring: rgb(45 106 79 / 0.25);
+    --income: #2d6a4f;
+    --expense: #c1403d;
+}
+
+/* ─── Dark Mode ──────────────────────────────────────────────── */
+.dark {
+    --background: #0f1710;
+    --foreground: #e8ede9;
+    --card: #161e17;
+    --card-foreground: #e8ede9;
+    --popover: #1a241b;
+    --popover-foreground: #e8ede9;
+    --primary: #52b788;
+    --primary-foreground: #0a1209;
+    --secondary: #1e2920;
+    --secondary-foreground: #e8ede9;
+    --muted: #1a2018;
+    --muted-foreground: #8a9688;
+    --accent: #52b788;
+    --accent-foreground: #0a1209;
+    --destructive: oklch(0.65 0.22 27.325);
+    --border: #253227;
+    --input: #253227;
+    --ring: rgb(82 183 136 / 0.3);
+    --chart-1: #52b788;
+    --chart-2: #74c69d;
+    --chart-3: #95d5b2;
+    --chart-4: #b7e4c7;
+    --chart-5: #d8f3dc;
+    --sidebar: #0f1710;
+    --sidebar-foreground: #e8ede9;
+    --sidebar-primary: #52b788;
+    --sidebar-primary-foreground: #0a1209;
+    --sidebar-accent: #1a2c1d;
+    --sidebar-accent-foreground: #95d5b2;
+    --sidebar-border: #1e2b1f;
+    --sidebar-ring: rgb(82 183 136 / 0.3);
+    --income: #52b788;
+    --expense: #e07070;
 }
 
 @layer base {
@@ -91,16 +130,20 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     min-height: 100vh;
+    font-feature-settings: "ss01", "ss02", "cv01";
   }
   html {
     @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   button {
     @apply cursor-pointer;
   }
   ::selection {
-    background: rgb(75 148 56 / 0.16);
+    background: rgb(45 106 79 / 0.14);
   }
 }

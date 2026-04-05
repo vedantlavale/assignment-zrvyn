@@ -22,22 +22,22 @@ export function Sidebar() {
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-40 hidden border-r border-sidebar-border bg-sidebar md:flex md:w-16 md:flex-col lg:w-64">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden border-r border-sidebar-border bg-sidebar md:flex md:w-16 md:flex-col lg:w-60">
         <div className="border-b border-sidebar-border px-4 py-5 lg:px-5">
           <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <BarChart3 className="size-4.5" />
+            <div className="flex size-9 items-center justify-center bg-primary text-primary-foreground">
+              <BarChart3 className="size-4" />
             </div>
             <div className="hidden lg:block">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
                 Zorvyn
               </p>
-              <h2 className="font-semibold tracking-tight">Personal finance</h2>
+              <h2 className="text-sm font-semibold tracking-tight">Personal Finance</h2>
             </div>
           </div>
         </div>
 
-        <nav className="flex-1 space-y-1 px-3 py-4">
+        <nav className="flex-1 space-y-0.5 px-2.5 py-4">
           {navItems.map((item) => {
             const Icon = item.icon
 
@@ -47,10 +47,10 @@ export function Sidebar() {
                 to={item.to}
                 className={({ isActive }) =>
                   cn(
-                    "flex h-11 items-center gap-3 rounded-md px-3 text-sm font-medium transition-colors md:justify-center lg:justify-start",
+                    "flex h-10 items-center gap-3 px-3 text-sm font-medium transition-colors md:justify-center lg:justify-start",
                     isActive
                       ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                   )
                 }
               >
@@ -61,9 +61,9 @@ export function Sidebar() {
           })}
         </nav>
 
-        <div className="space-y-3 border-t border-sidebar-border px-3 py-4">
+        <div className="space-y-3 border-t border-sidebar-border px-2.5 py-4">
           <div className="hidden px-1 lg:block">
-            <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
               Access
             </p>
           </div>
@@ -73,7 +73,7 @@ export function Sidebar() {
               dispatch({ type: "SET_ROLE", payload: value as "viewer" | "admin" })
             }
           >
-            <SelectTrigger className="h-11 bg-background">
+            <SelectTrigger className="h-10 bg-background">
               <div className="flex items-center gap-2">
                 <UserRound className="size-4" />
                 <span className="hidden lg:inline">Role</span>
@@ -88,8 +88,8 @@ export function Sidebar() {
         </div>
       </aside>
 
-      <nav className="fixed right-4 bottom-4 left-4 z-40 rounded-lg border border-border bg-card p-2 shadow-lg md:hidden">
-        <div className="grid grid-cols-3 gap-2">
+      <nav className="fixed right-0 bottom-0 left-0 z-40 border-t border-border bg-card p-2 md:hidden">
+        <div className="grid grid-cols-3 gap-1">
           {navItems.map((item) => {
             const Icon = item.icon
 
@@ -99,7 +99,7 @@ export function Sidebar() {
                 to={item.to}
                 className={({ isActive }) =>
                   cn(
-                    "flex flex-col items-center gap-1 rounded-md px-2 py-2 text-xs font-medium",
+                    "flex flex-col items-center gap-1 px-2 py-2 text-xs font-medium",
                     isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-muted-foreground"
                   )
                 }
