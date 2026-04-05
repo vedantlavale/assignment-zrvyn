@@ -60,6 +60,7 @@ Automated financial signals derived from your history.
 - **Typography Hierarchy**: Uppercase labels with generous tracking for headers; DM Mono for all currency and dates to ensure vertical alignment.
 - **Unified Tooltips**: High-contrast chart tooltips with consistent formatting across all visualizations.
 - **Theme Engine**: Complete Dark and Light mode support.
+  - **Default**: White (Light) mode is enabled for all new users.
   - **Toggle**: Access via the Topbar icon.
   - **Hotkey**: Press `D` to toggle themes instantly.
   - **Persistence**: Remembers your preference via `localStorage`.
