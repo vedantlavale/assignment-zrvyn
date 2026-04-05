@@ -135,7 +135,7 @@ export function TransactionModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       {!editingTransaction ? (
         <DialogTrigger asChild>
-          <Button className="fixed right-6 bottom-24 z-30 size-14 rounded-full bg-accent text-accent-foreground shadow-xl shadow-accent/30 md:bottom-6">
+          <Button className="fixed right-6 bottom-24 z-30 size-12 bg-primary text-primary-foreground shadow-lg md:bottom-6">
             <Plus className="size-5" />
           </Button>
         </DialogTrigger>
@@ -153,19 +153,19 @@ export function TransactionModal({
 
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Description</label>
+            <label className="text-xs font-semibold uppercase tracking-wider">Description</label>
             <Input
               value={form.description}
               onChange={(event) => setField("description", event.target.value)}
             />
             {errors.description ? (
-              <p className="text-sm text-expense">{errors.description}</p>
+              <p className="text-xs text-expense">{errors.description}</p>
             ) : null}
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Amount</label>
+              <label className="text-xs font-semibold uppercase tracking-wider">Amount</label>
               <Input
                 type="number"
                 min="1"
@@ -173,25 +173,25 @@ export function TransactionModal({
                 onChange={(event) => setField("amount", event.target.value)}
               />
               {errors.amount ? (
-                <p className="text-sm text-expense">{errors.amount}</p>
+                <p className="text-xs text-expense">{errors.amount}</p>
               ) : null}
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium">Date</label>
+              <label className="text-xs font-semibold uppercase tracking-wider">Date</label>
               <Input
                 type="date"
                 value={form.date}
                 onChange={(event) => setField("date", event.target.value)}
               />
               {errors.date ? (
-                <p className="text-sm text-expense">{errors.date}</p>
+                <p className="text-xs text-expense">{errors.date}</p>
               ) : null}
             </div>
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Type</label>
+            <label className="text-xs font-semibold uppercase tracking-wider">Type</label>
             <RadioGroup
               className="flex gap-6"
               value={form.type}
@@ -209,7 +209,7 @@ export function TransactionModal({
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Category</label>
+            <label className="text-xs font-semibold uppercase tracking-wider">Category</label>
             <Select
               value={form.category}
               onValueChange={(value) => setField("category", value as Category)}
@@ -234,7 +234,7 @@ export function TransactionModal({
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Note</label>
+            <label className="text-xs font-semibold uppercase tracking-wider">Note</label>
             <Textarea
               value={form.note}
               onChange={(event) => setField("note", event.target.value)}
@@ -242,7 +242,7 @@ export function TransactionModal({
             />
           </div>
 
-          <Button type="submit" className="h-11 w-full rounded-xl" disabled={saving}>
+          <Button type="submit" className="h-11 w-full" disabled={saving}>
             {saving ? <LoaderCircle className="size-4 animate-spin" /> : null}
             {saving ? "Saving..." : editingTransaction ? "Save changes" : "Add transaction"}
           </Button>

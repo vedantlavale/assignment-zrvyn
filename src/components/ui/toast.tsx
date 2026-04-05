@@ -14,7 +14,7 @@ function Toast({
   return (
     <ToastPrimitives.Root
       className={cn(
-        "group pointer-events-auto relative flex w-full items-start gap-3 overflow-hidden rounded-xl border border-border bg-popover p-4 text-popover-foreground shadow-lg",
+        "group pointer-events-auto relative flex w-full items-start gap-3 overflow-hidden border border-border bg-popover p-4 text-popover-foreground shadow-lg",
         className
       )}
       {...props}

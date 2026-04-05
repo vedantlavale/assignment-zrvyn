@@ -28,7 +28,7 @@ export function TransactionFilters() {
   }
 
   return (
-    <div className="sticky top-14 z-20 rounded-2xl border border-border/70 bg-background/90 p-4 shadow-sm backdrop-blur">
+    <div className="sticky top-14 z-20 border border-border bg-background p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
       <div className="grid gap-3 xl:grid-cols-[1.25fr_auto_auto_auto_auto_auto]">
         <Input
           placeholder="Search descriptions"
@@ -56,15 +56,15 @@ export function TransactionFilters() {
 
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" className="h-10 rounded-xl">
-              <Filter className="size-4" />
+            <Button variant="outline" className="h-10">
+              <Filter className="size-3.5" />
               Categories
             </Button>
           </PopoverTrigger>
           <PopoverContent align="start">
             <div className="mb-3">
-              <p className="font-medium">Filter categories</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm font-medium">Filter categories</p>
+              <p className="text-xs text-muted-foreground">
                 Select one or more categories
               </p>
             </div>
@@ -112,7 +112,7 @@ export function TransactionFilters() {
               })
             }}
           >
-            <SelectTrigger className="min-w-40 rounded-xl">
+            <SelectTrigger className="min-w-40">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -125,11 +125,11 @@ export function TransactionFilters() {
 
           <Button
             variant="ghost"
-            className="h-10 rounded-xl"
+            className="h-10"
             onClick={() => dispatch({ type: "RESET_FILTERS" })}
             disabled={JSON.stringify(filters) === JSON.stringify(defaultFilters)}
           >
-            <RotateCcw className="size-4" />
+            <RotateCcw className="size-3.5" />
             Reset
           </Button>
         </div>

@@ -18,7 +18,7 @@ function TableRow({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) 
   return (
     <tr
       className={cn(
-        "border-b border-border/60 transition-colors hover:bg-muted/50",
+        "border-b border-border transition-colors hover:bg-muted/30",
         className
       )}
       {...props}
@@ -30,7 +30,7 @@ function TableHead({ className, ...props }: HTMLAttributes<HTMLTableCellElement>
   return (
     <th
       className={cn(
-        "h-12 px-4 text-left align-middle text-xs font-medium tracking-wide text-muted-foreground uppercase",
+        "h-11 px-4 text-left align-middle text-[11px] font-semibold tracking-widest text-muted-foreground uppercase",
         className
       )}
       {...props}
@@ -39,7 +39,7 @@ function TableHead({ className, ...props }: HTMLAttributes<HTMLTableCellElement>
 }
 
 function TableCell({ className, ...props }: TdHTMLAttributes<HTMLTableCellElement>) {
-  return <td className={cn("p-4 align-middle", className)} {...props} />
+  return <td className={cn("px-4 py-3.5 align-middle", className)} {...props} />
 }
 
 export { Table, TableBody, TableCell, TableHead, TableHeader, TableRow }

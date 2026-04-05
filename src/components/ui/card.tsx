@@ -6,7 +6,7 @@ function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "rounded-lg border border-border bg-card shadow-[0_1px_0_rgba(38,38,34,0.03)] transition-colors duration-200",
+        "border border-border bg-card shadow-[0_1px_2px_rgba(0,0,0,0.04)]",
         className
       )}
       {...props}
@@ -25,7 +25,7 @@ function CardHeader({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
 function CardTitle({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("font-semibold tracking-tight text-foreground", className)}
+      className={cn("text-sm font-semibold uppercase tracking-wide text-foreground", className)}
       {...props}
     />
   )
@@ -37,7 +37,7 @@ function CardDescription({
 }: HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("mt-1 text-xs text-muted-foreground", className)}
       {...props}
     />
   )

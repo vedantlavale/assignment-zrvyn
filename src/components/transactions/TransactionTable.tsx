@@ -57,7 +57,7 @@ export function TransactionTable({
           <SearchX className="size-10 text-muted-foreground" />
           <div className="space-y-1">
             <p className="font-medium">No transactions match your filters.</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs text-muted-foreground">
               Adjust the filter bar or clear filters to see all activity.
             </p>
           </div>
@@ -88,13 +88,15 @@ export function TransactionTable({
               <TableBody>
                 {filteredTransactions.map((transaction) => (
                   <TableRow key={transaction.id}>
-                    <TableCell>{format(parseISO(transaction.date), "d MMM yyyy")}</TableCell>
+                    <TableCell className="font-mono text-xs tabular-nums">
+                      {format(parseISO(transaction.date), "d MMM yyyy")}
+                    </TableCell>
                     <TableCell>
                       <div className="max-w-64 truncate font-medium">
                         {transaction.description}
                       </div>
                       {transaction.note ? (
-                        <p className="mt-1 truncate text-xs text-muted-foreground">
+                        <p className="mt-0.5 truncate text-[11px] text-muted-foreground">
                           {transaction.note}
                         </p>
                       ) : null}
@@ -103,7 +105,7 @@ export function TransactionTable({
                       <Badge
                         className="border-transparent"
                         style={{
-                          backgroundColor: `${categoryPalette[transaction.category]}20`,
+                          backgroundColor: `${categoryPalette[transaction.category]}18`,
                           color: categoryPalette[transaction.category],
                         }}
                       >
@@ -133,24 +135,23 @@ export function TransactionTable({
                     </TableCell>
                     {isAdmin ? (
                       <TableCell className="text-right">
-                        <div className="flex justify-end gap-2">
+                        <div className="flex justify-end gap-1.5">
                           <Button
                             size="icon-sm"
                             variant="ghost"
-                            className="rounded-xl"
                             onClick={() => onEdit(transaction)}
                           >
-                            <Pencil className="size-4" />
+                            <Pencil className="size-3.5" />
                           </Button>
                           <AlertDialog>
                             <AlertDialogTrigger asChild>
                               <Button
                                 size="icon-sm"
                                 variant="ghost"
-                                className="rounded-xl text-expense"
+                                className="text-expense"
                                 onClick={() => setPendingDelete(transaction.id)}
                               >
-                                <Trash2 className="size-4" />
+                                <Trash2 className="size-3.5" />
                               </Button>
                             </AlertDialogTrigger>
                             <AlertDialogContent>
@@ -182,14 +183,14 @@ export function TransactionTable({
         </CardContent>
       </Card>
 
-      <div className="grid gap-4 sm:hidden">
+      <div className="grid gap-3 sm:hidden">
         {filteredTransactions.map((transaction) => (
           <Card key={transaction.id}>
             <CardContent className="space-y-3 p-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="font-medium">{transaction.description}</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="font-mono text-xs text-muted-foreground">
                     {format(parseISO(transaction.date), "d MMM yyyy")}
                   </p>
                 </div>
@@ -203,11 +204,11 @@ export function TransactionTable({
                   {formatCurrency(transaction.amount)}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 <Badge
                   className="border-transparent"
                   style={{
-                    backgroundColor: `${categoryPalette[transaction.category]}20`,
+                    backgroundColor: `${categoryPalette[transaction.category]}18`,
                     color: categoryPalette[transaction.category],
                   }}
                 >
@@ -225,21 +226,21 @@ export function TransactionTable({
                 </Badge>
               </div>
               {transaction.note ? (
-                <p className="text-sm text-muted-foreground">{transaction.note}</p>
+                <p className="text-xs text-muted-foreground">{transaction.note}</p>
               ) : null}
               {isAdmin ? (
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
-                    className="flex-1 rounded-xl"
+                    className="flex-1"
                     onClick={() => onEdit(transaction)}
                   >
-                    <Pencil className="size-4" />
+                    <Pencil className="size-3.5" />
                     Edit
                   </Button>
                   <Button
                     variant="outline"
-                    className="flex-1 rounded-xl text-expense"
+                    className="flex-1 text-expense"
                     onClick={() => {
                       dispatch({ type: "DELETE_TRANSACTION", payload: transaction.id })
                       toast({
@@ -248,7 +249,7 @@ export function TransactionTable({
                       })
                     }}
                   >
-                    <Trash2 className="size-4" />
+                    <Trash2 className="size-3.5" />
                     Delete
                   </Button>
                 </div>

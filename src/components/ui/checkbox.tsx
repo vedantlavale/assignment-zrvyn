@@ -10,7 +10,7 @@ function Checkbox({
   return (
     <CheckboxPrimitive.Root
       className={cn(
-        "peer flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-border bg-background shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-accent/20 data-[state=checked]:border-accent data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground",
+        "peer flex size-4 shrink-0 items-center justify-center border border-border bg-background shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary/20 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
         className
       )}
       {...props}
