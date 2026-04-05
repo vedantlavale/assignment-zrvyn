@@ -19,13 +19,13 @@ export function InsightCards() {
       content: highestSpending ? (
         <>
           <p className="text-lg font-semibold">{highestSpending.category}</p>
-          <p className="font-mono text-sm">{formatCurrency(highestSpending.amount)}</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="font-mono text-sm tabular-nums">{formatCurrency(highestSpending.amount)}</p>
+          <p className="text-xs text-muted-foreground">
             {highestSpending.percent.toFixed(1)}% of expenses
           </p>
         </>
       ) : (
-        <p className="text-sm text-muted-foreground">No expense data yet.</p>
+        <p className="text-xs text-muted-foreground">No expense data yet.</p>
       ),
     },
     {
@@ -34,8 +34,8 @@ export function InsightCards() {
       content: bestSavingsMonth ? (
         <>
           <p className="text-lg font-semibold">{bestSavingsMonth.label}</p>
-          <p className="font-mono text-sm">{formatCurrency(bestSavingsMonth.balance)}</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="font-mono text-sm tabular-nums">{formatCurrency(bestSavingsMonth.balance)}</p>
+          <p className="text-xs text-muted-foreground">
             Highest monthly surplus in the last 6 months
           </p>
         </>
@@ -48,7 +48,7 @@ export function InsightCards() {
         <>
           <p className="text-lg font-semibold">{formatCurrency(thisMonth?.balance ?? 0)}</p>
           <ProgressBar value={incomeRatio < 0 ? 0 : incomeRatio} className="mt-3" />
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-xs text-muted-foreground">
             {formatCurrency(thisMonth?.income ?? 0)} income vs{" "}
             {formatCurrency(thisMonth?.expense ?? 0)} expense
           </p>
@@ -58,7 +58,7 @@ export function InsightCards() {
     {
       title: "Smart Tip",
       icon: Lightbulb,
-      content: <p className="text-sm leading-6 text-muted-foreground">{smartTip}</p>,
+      content: <p className="text-xs leading-5 text-muted-foreground">{smartTip}</p>,
     },
   ]
 
@@ -71,12 +71,14 @@ export function InsightCards() {
           <Card key={card.title}>
             <CardContent className="space-y-4 p-5">
               <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">{card.title}</p>
-                <div className="rounded-2xl bg-muted/60 p-3">
-                  <Icon className="size-4 text-accent" />
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  {card.title}
+                </p>
+                <div className="border border-border p-2">
+                  <Icon className="size-3.5 text-primary" />
                 </div>
               </div>
-              <div className="space-y-2">{card.content}</div>
+              <div className="space-y-1.5">{card.content}</div>
             </CardContent>
           </Card>
         )

@@ -23,13 +23,19 @@ export function MonthlyComparison() {
       </CardHeader>
       <CardContent className="pt-4">
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={monthly}>
-            <CartesianGrid vertical={false} stroke="var(--color-border)" strokeOpacity={0.35} />
-            <XAxis dataKey="label" tickLine={false} axisLine={false} />
+          <BarChart data={monthly} barCategoryGap="20%">
+            <CartesianGrid vertical={false} stroke="var(--color-border)" strokeOpacity={0.4} />
+            <XAxis
+              dataKey="label"
+              tickLine={false}
+              axisLine={false}
+              tick={{ fontSize: 11, fill: "var(--color-muted-foreground)" }}
+            />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickFormatter={(value) => formatCompactCurrency(value)}
+              tick={{ fontSize: 11, fill: "var(--color-muted-foreground)" }}
               width={72}
             />
             <Tooltip
@@ -41,19 +47,21 @@ export function MonthlyComparison() {
                 const income = Number(payload[0]?.value || 0)
                 const expense = Number(payload[1]?.value || 0)
                 return (
-                  <div className="rounded-xl border border-border bg-[#101728] px-4 py-3 text-sm text-white shadow-2xl">
-                    <p className="mb-2 font-medium">{label}</p>
-                    <div className="space-y-1 font-mono">
-                      <p>Income: {formatCurrency(income)}</p>
-                      <p>Expense: {formatCurrency(expense)}</p>
-                      <p>Net savings: {formatCurrency(income - expense)}</p>
+                  <div className="border border-border bg-card px-4 py-3 text-sm shadow-lg">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider">{label}</p>
+                    <div className="space-y-1 font-mono text-xs tabular-nums">
+                      <p className="text-income">Income: {formatCurrency(income)}</p>
+                      <p className="text-expense">Expense: {formatCurrency(expense)}</p>
+                      <p className="border-t border-border pt-1 font-semibold text-foreground">
+                        Net: {formatCurrency(income - expense)}
+                      </p>
                     </div>
                   </div>
                 )
               }}
             />
-            <Bar dataKey="income" fill="var(--color-income)" radius={[10, 10, 0, 0]} isAnimationActive />
-            <Bar dataKey="expense" fill="var(--color-expense)" radius={[10, 10, 0, 0]} isAnimationActive />
+            <Bar dataKey="income" fill="var(--color-income)" isAnimationActive />
+            <Bar dataKey="expense" fill="var(--color-expense)" isAnimationActive />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

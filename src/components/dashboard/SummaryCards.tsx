@@ -39,7 +39,7 @@ export function SummaryCards() {
 
   const cards = [
     {
-      label: "My balance",
+      label: "My Balance",
       value: totalBalance,
       helper: `${monthChange >= 0 ? "↑" : "↓"} ${Math.abs(monthChange).toFixed(1)}% vs last month`,
       icon: Wallet,
@@ -47,7 +47,7 @@ export function SummaryCards() {
       trendClass: monthChange >= 0 ? "text-income" : "text-expense",
     },
     {
-      label: "Monthly income",
+      label: "Monthly Income",
       value: totalIncome,
       helper: `↑ ${formatCompactCurrency(monthly[1]?.income ?? 0)} this month`,
       icon: TrendingUp,
@@ -55,7 +55,7 @@ export function SummaryCards() {
       trendClass: "text-income",
     },
     {
-      label: "Monthly expenses",
+      label: "Monthly Expenses",
       value: totalExpenses,
       helper: `↓ ${formatCompactCurrency(monthly[1]?.expense ?? 0)} this month`,
       icon: TrendingDown,
@@ -67,8 +67,8 @@ export function SummaryCards() {
       value: Math.round(savingsRate),
       helper: savingsRate >= 20 ? "Healthy cash cushion" : "Watch discretionary spend",
       icon: PiggyBank,
-      tone: savingsRate >= 20 ? "text-income" : "text-amber-500",
-      trendClass: savingsRate >= 20 ? "text-income" : "text-amber-500",
+      tone: savingsRate >= 20 ? "text-income" : "text-amber-600",
+      trendClass: savingsRate >= 20 ? "text-income" : "text-amber-600",
       suffix: "%",
     },
   ]
@@ -79,25 +79,25 @@ export function SummaryCards() {
         const Icon = card.icon
 
         return (
-          <Card key={card.label} className="overflow-hidden bg-white">
+          <Card key={card.label} className="group overflow-hidden bg-card">
             <CardContent className="p-5">
-              <div className="mb-8 flex items-start justify-between">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">{card.label}</p>
-                </div>
-                <div className={`rounded-full border border-border bg-white p-2.5 ${card.tone}`}>
-                  <Icon className="size-4" />
+              <div className="mb-6 flex items-start justify-between">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  {card.label}
+                </p>
+                <div className={`border border-border p-2 ${card.tone}`}>
+                  <Icon className="size-3.5" />
                 </div>
               </div>
-              <div className="space-y-2">
-                <div className="font-mono text-[2rem] font-semibold tabular-nums tracking-tight">
+              <div className="space-y-1.5">
+                <div className="font-mono text-2xl font-semibold tabular-nums tracking-tight">
                   <StatValue value={card.value} suffix={card.suffix} />
                 </div>
-                <div className={`flex items-center gap-1 text-sm font-medium ${card.trendClass}`}>
+                <div className={`flex items-center gap-1 text-xs font-medium ${card.trendClass}`}>
                   {card.trendClass === "text-expense" ? (
-                    <ArrowDownRight className="size-4" />
+                    <ArrowDownRight className="size-3.5" />
                   ) : (
-                    <ArrowUpRight className="size-4" />
+                    <ArrowUpRight className="size-3.5" />
                   )}
                   <span>{card.helper}</span>
                 </div>

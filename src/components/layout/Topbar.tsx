@@ -1,4 +1,4 @@
-import { Bell, ChevronRight, MessageCircle, Search } from "lucide-react"
+import { Bell, ChevronRight, Search } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 
 import { Input } from "@/components/ui/input"
@@ -14,40 +14,32 @@ export function Topbar() {
   const currentLabel = labels[location.pathname] || "Dashboard"
 
   return (
-    <header className="sticky top-0 z-30 bg-background">
-      <div className="px-4 pt-4 sm:px-6">
-        <div className="flex h-16 items-center gap-3 rounded-lg border border-border bg-card px-4">
-          <div className="hidden items-center gap-2 text-sm text-muted-foreground md:flex">
-            <div className="rounded-md border border-border bg-muted px-3 py-1.5 text-foreground">
-              Personal account
-            </div>
-            <ChevronRight className="size-4" />
-            <Link
-              to="/"
-              className="rounded-md border border-[#dce8d5] bg-[#edf4e8] px-3 py-1.5 font-medium text-primary"
-            >
-              {currentLabel}
-            </Link>
+    <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur-sm">
+      <div className="flex h-14 items-center gap-3 px-5">
+        <div className="hidden items-center gap-2 text-sm text-muted-foreground md:flex">
+          <span className="text-xs font-medium uppercase tracking-wider">Personal</span>
+          <ChevronRight className="size-3.5" />
+          <Link
+            to="/"
+            className="border-b border-primary pb-0.5 text-xs font-semibold uppercase tracking-wider text-primary"
+          >
+            {currentLabel}
+          </Link>
+        </div>
+        <div className="relative ml-auto hidden w-full max-w-sm md:block">
+          <Search className="absolute top-1/2 left-3 size-3.5 -translate-y-1/2 text-muted-foreground" />
+          <Input placeholder="Search transactions..." className="h-9 pl-9 text-sm" />
+        </div>
+        <button className="flex size-9 items-center justify-center border border-border bg-background text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+          <Bell className="size-3.5" />
+        </button>
+        <div className="flex items-center gap-2.5 border border-border bg-background px-2.5 py-1.5">
+          <div className="flex size-7 items-center justify-center bg-primary/10 text-[11px] font-bold text-primary">
+            VL
           </div>
-          <div className="relative ml-auto hidden w-full max-w-md md:block">
-            <Search className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-            <Input placeholder="Search" className="pl-9" />
-          </div>
-          <button className="hidden h-10 items-center gap-2 rounded-md border border-border px-3 text-sm text-muted-foreground transition-colors hover:text-foreground md:inline-flex">
-            <MessageCircle className="size-4" />
-            Chat
-          </button>
-          <button className="flex size-10 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:text-foreground">
-            <Bell className="size-4" />
-          </button>
-          <div className="flex items-center gap-3 rounded-md border border-border bg-background px-2 py-1.5 pr-3">
-            <div className="flex size-8 items-center justify-center rounded-md bg-[#dbe9d5] text-sm font-semibold text-primary">
-              VL
-            </div>
-            <div className="hidden sm:block">
-              <p className="text-sm font-semibold">Vedant Lavale</p>
-              <p className="text-xs text-muted-foreground">@vedant</p>
-            </div>
+          <div className="hidden sm:block">
+            <p className="text-xs font-semibold leading-tight">Vedant Lavale</p>
+            <p className="text-[10px] text-muted-foreground">@vedant</p>
           </div>
         </div>
       </div>
