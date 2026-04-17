@@ -13,7 +13,7 @@ import { TransactionProvider } from "@/context/TransactionContext"
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <ThemeProvider defaultTheme="light" storageKey="zorvyn-theme">
+      <ThemeProvider defaultTheme="light" storageKey="finwise-theme">
         <AppProvider>
           <TransactionProvider>
             <ToastContextProvider>

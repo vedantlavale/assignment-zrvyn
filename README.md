@@ -1,10 +1,10 @@
-# Zorvyn Finance Dashboard
+# FinWise Finance Dashboard
 
 A high-end, professional SaaS finance dashboard built with Bun, Vite, React, and TypeScript. It features a sharp-edged, data-dense UI designed for precise personal finance monitoring, with a role-based management system and real-time visualization of income, expenses, and savings.
 
 ## Project Overview
 
-Zorvyn transforms raw transaction data into actionable financial intelligence. It moves away from "vibe-coded" aesthetics toward a professional, technical visual language using a structured design system, high-contrast typography (DM Sans & DM Mono), and specialized data visualizations.
+FinWise transforms raw transaction data into actionable financial intelligence. It moves away from "vibe-coded" aesthetics toward a professional, technical visual language using a structured design system, high-contrast typography (DM Sans & DM Mono), and specialized data visualizations.
 
 ## Tech Stack
 
@@ -79,4 +79,4 @@ Automated financial signals derived from your history.
 
 ---
 
-*Zorvyn — Sharp. Technical. Financial.*
+*FinWise — Sharp. Technical. Financial.*

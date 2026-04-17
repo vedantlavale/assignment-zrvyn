@@ -21,7 +21,7 @@ const seeds: Seed[] = [
   {
     monthOffset: 5,
     day: 1,
-    description: "Zorvyn salary credit",
+    description: "FinWise salary credit",
     amount: 85000,
     type: "income",
     category: "Salary",
@@ -88,7 +88,7 @@ const seeds: Seed[] = [
   {
     monthOffset: 4,
     day: 1,
-    description: "Zorvyn salary credit",
+    description: "FinWise salary credit",
     amount: 85000,
     type: "income",
     category: "Salary",
@@ -154,7 +154,7 @@ const seeds: Seed[] = [
   {
     monthOffset: 3,
     day: 1,
-    description: "Zorvyn salary credit",
+    description: "FinWise salary credit",
     amount: 85000,
     type: "income",
     category: "Salary",
@@ -227,7 +227,7 @@ const seeds: Seed[] = [
   {
     monthOffset: 2,
     day: 1,
-    description: "Zorvyn salary credit",
+    description: "FinWise salary credit",
     amount: 85000,
     type: "income",
     category: "Salary",
@@ -301,7 +301,7 @@ const seeds: Seed[] = [
   {
     monthOffset: 1,
     day: 1,
-    description: "Zorvyn salary credit",
+    description: "FinWise salary credit",
     amount: 85000,
     type: "income",
     category: "Salary",
@@ -374,7 +374,7 @@ const seeds: Seed[] = [
   {
     monthOffset: 0,
     day: 1,
-    description: "Zorvyn salary credit",
+    description: "FinWise salary credit",
     amount: 85000,
     type: "income",
     category: "Salary",

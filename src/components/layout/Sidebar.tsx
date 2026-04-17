@@ -30,7 +30,7 @@ export function Sidebar() {
             </div>
             <div className="hidden lg:block">
               <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                Zorvyn
+                FinWise
               </p>
               <h2 className="text-sm font-semibold tracking-tight">Personal Finance</h2>
             </div>

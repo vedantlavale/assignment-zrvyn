@@ -64,7 +64,7 @@ export function Topbar() {
             VL
           </div>
           <div className="hidden sm:block">
-            <p className="text-xs font-semibold leading-tight">Vedant Lavale</p>
+            <p className="text-xs font-semibold leading-tight">Vedant</p>
             <p className="text-[10px] text-muted-foreground">@vedant</p>
           </div>
         </div>
